@@ -24,11 +24,11 @@ router.get('/', ensureAuthenticated, (req, res, next) => {
     });
 });
 
-router.get('/persona/nuevo', (req, res, next) => {
+router.get('/persona/nuevo', ensureAuthenticated, (req, res, next) => {
     res.render('personaForm.hbs', {});
 });
 
-router.get('/persona/modificar/:id', (req, res, next) => {
+router.get('/persona/modificar/:id', ensureAuthenticated, (req, res, next) => {
     let idPersona = req.params.id;
     Persona.findOne({_id: idPersona }, (err, persona) => {
         //console.log(persona);
@@ -37,7 +37,7 @@ router.get('/persona/modificar/:id', (req, res, next) => {
     });
 });
 
-router.get('/persona/eliminar/:id', (req, res, next) => {
+router.get('/persona/eliminar/:id', ensureAuthenticated, (req, res, next) => {
     let idPersona = req.params.id;
     
     Persona.remove({_id: idPersona }, (err) => {
