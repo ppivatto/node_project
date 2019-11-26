@@ -1,8 +1,8 @@
 let express = require('express');
 let router = express.Router();
 
-let mongoose = require('./../config/conexion');
-let Persona = require('./../models/persona');
+let mongoose = require('../config/conexion');
+let Persona = require('../models/persona');
 
 router.post('/persona/operar', (req, res, next) => {
     console.log(req.body);
