@@ -10,4 +10,8 @@ console.log('MONGO CONNECTION>>', mongoConection)
 
 mongoose.connect(mongoConection, {useNewUrlParser: true, useUnifiedTopology: true}); 
 
-module.exports = mongoose;
+//module.exports = mongoose;
+
+module.exports = {
+    mongoURI: mongoConection
+};
