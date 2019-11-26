@@ -1,9 +1,14 @@
+require('dotenv').config();
 const argv = require('yargs').argv;
 let mongoose = require('mongoose');
 
-const mongoConection = 'mongodb://pepito:test123@ds235239.mlab.com:35239/example-2018'
+const environment = argv.environment;
+const db_environment = `${environment.toUpperCase()}`;
+//export const BASE_URL = process.env[`REACT_APP_${envKey}_API_URL`];
+const mongoConection = process.env[`${db_environment}_DB_MONGO`]
 
-console.log('MONGO CONNECTION>>', argv.environment)
+console.log('db_environment CONNECTION>>', db_environment)
+console.log('MONGO CONNECTION>>', mongoConection)
 
 mongoose.connect(mongoConection); 
 //mongodb://localhost:27017/crud
