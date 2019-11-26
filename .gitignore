@@ -123,3 +123,5 @@ fabric.properties
 package-lock.json
 logs/
 
+.DS_Store
+
