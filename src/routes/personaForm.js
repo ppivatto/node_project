@@ -5,7 +5,6 @@ let mongoose = require('../config/conexion');
 let Persona = require('../models/persona');
 
 router.post('/persona/operar', (req, res, next) => {
-    console.log(req.body);
     
     if (req.body._id === "") {
         let per = new Persona({
@@ -16,7 +15,6 @@ router.post('/persona/operar', (req, res, next) => {
         
         per.save();
     } else {
-        //console.log(req.body._id);
         Persona.findByIdAndUpdate(req.body._id, { $set: req.body }, { new: true }, (err, model) => {
             if (err) throw err;
         });
